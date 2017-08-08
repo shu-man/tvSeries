@@ -13,10 +13,10 @@ import java.util.List;
  */
 @Service
 public class TestServiceImpl implements TestService {
-    @Resource
+   /* @Resource
     private TestRepository testRepository;
     @Override
     public List<Test> findAll() {
         return (List<Test>) testRepository.findAll();
-    }
+    }*/
 }
