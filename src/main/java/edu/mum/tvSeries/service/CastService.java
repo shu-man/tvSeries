@@ -11,4 +11,7 @@ public interface CastService {
 
     public List<Cast> findAll();
     public void createCart(Cast cast);
+    public Cast getCastbyId(int castId);
+    public void castUpdate(Cast cast);
+    public void castDelete(int castId);
 }

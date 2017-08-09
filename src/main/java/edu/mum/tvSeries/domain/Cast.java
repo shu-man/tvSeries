@@ -44,11 +44,11 @@ public class Cast {
         this.birthPlace = birthPlace;
     }
 
-    public String getcharacterName() {
+    public String getCharacterName() {
         return characterName;
     }
 
-    public void setcharacterName(String characterName) {
+    public void setCharacterName(String characterName) {
         this.characterName = characterName;
     }
 
@@ -67,6 +67,4 @@ public class Cast {
     public void setCastImage(byte[] castImage) {
         this.castImage = castImage;
     }
-
-
 }

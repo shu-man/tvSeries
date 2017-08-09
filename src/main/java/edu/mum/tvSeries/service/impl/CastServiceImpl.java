@@ -25,4 +25,19 @@ public class CastServiceImpl implements CastService {
     public void createCart(Cast cast) {
     castRepository.newCast(cast);
     }
+
+    @Override
+    public Cast getCastbyId(int castId) {
+        return castRepository.getCastbyId(castId);
+    }
+
+    @Override
+    public void castUpdate(Cast cast) {
+        castRepository.castUpdate(cast);
+    }
+
+    @Override
+    public void castDelete(int castId) {
+        castRepository.castDelete(castId);
+    }
 }

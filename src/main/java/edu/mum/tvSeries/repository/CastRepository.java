@@ -22,17 +22,46 @@ public class CastRepository {
     @Transactional
     public List<Cast> castList() {
         Session session = sf.getCurrentSession();
-        return session.createQuery("from Cast ").list();
-    }
-    @Transactional
-    public void newCast(Cast cast){
-        try{
-            Session session=sf.getCurrentSession();
-            session.persist(cast);
+       /* Query query = session.createQuery("from Cast");
+        return query.list();
+*/
+        List<Cast> casts = (List<Cast>) session.createQuery("from Cast").list();
+        for (Cast cast : casts) {
+            System.out.println(cast.getName());
         }
-       catch (Exception e){
-           System.out.println("Exception is:"+e.getMessage());
+        return casts;
+    }
+
+    @Transactional
+    public void newCast(Cast cast) {
+        try {
+            Session session = sf.getCurrentSession();
+            session.persist(cast);
+        } catch (Exception e) {
+            System.out.println("Exception is:" + e.getMessage());
             e.printStackTrace();
-       }
+        }
+    }
+
+    @Transactional
+    public Cast getCastbyId(int castId) {
+        Session session = sf.getCurrentSession();
+        Cast cast = (Cast) session.get(Cast.class, castId);
+        return cast;
+    }
+
+    @Transactional
+    public void castUpdate(Cast cast) {
+        Session session = sf.getCurrentSession();
+        session.update(cast);
+    }
+
+    @Transactional
+    public void castDelete(int castId) {
+        Session session = sf.getCurrentSession();
+        Cast cast = (Cast) session.get(Cast.class, castId);
+        if (cast != null) {
+            session.delete(cast);
+        }
     }
 }
